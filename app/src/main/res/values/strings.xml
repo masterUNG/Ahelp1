@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Ahelp</string>
+
+    <string name="user_name">ชื่อ-นามสกุล :</string>
+    <string name="number">เบอร์โทร :</string>
+    <string name="Login">เข้าสู่ระบบ</string>
+
+    <string name="message">โปรดเลือกเบอร์ ที่จะได้รับข้อความในกรณีที่เกิดเหตุฉุกเฉิน</string>
+    <string name="call">โปรดเลือกเบอร์ ที่จะโทรออกอัตโนมัติในกรณีที่เกิดเหตุฉุกเฉิน</string>
+
+    <string name="add_call">เพิ่ม</string>
+    <string name="delete_call">ลบ</string>
+    <string name="ok_set">ยืนยัน</string>
+
+    <string name="help">กดปุ่มเมื่อมีเหตุฉุกเฉิน</string>
+    <string name="callhelp">โทรฉุกเฉิน</string>
+    <string name="setting">ตั้งค่า</string>
+    <string name="content">ถัดไป</string>
+</resources>
