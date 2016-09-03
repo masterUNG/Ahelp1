@@ -1,7 +1,8 @@
 package com.example.pareeya.ahelp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     //Explicit
     private MyManage myManage;
     private EditText nameEditText, MyPhoneEditText;
-    private String nameSting,MyPhoneString;
+    private String nameString, MyPhoneString;
 
 
     @Override
@@ -21,32 +22,64 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Bind Widget
-        nameEditText  = (EditText) findViewById(R.id.editText7);
+        nameEditText = (EditText) findViewById(R.id.editText7);
         MyPhoneEditText = (EditText) findViewById(R.id.editText8);
+
 
 
         myManage = new MyManage(this);
 
-
     }//Main Method
+    public void clickSaveData(View view) {
 
-    public void ClickSaveData (View view) {
-        nameSting = nameEditText.getText().toString().trim();
+        nameString = nameEditText.getText().toString().trim();
         MyPhoneString = MyPhoneEditText.getText().toString().trim();
 
-        //check space
+        //Check Space
 
-        if (CheckSpace()) {
-            //เมื่อไหร่ที่มีความว่างเปล่า
+        if (checkSpace()) {
+            //Have Space ถ้ามีความว่างเปล่า
             MyAlert myAlert = new MyAlert();
-            myAlert.myDialog(this,"มีช่องว่าง","กรุณากรอกทุกช่อง คะ");
+            myAlert.myDialog(this, "กรอกข้อมูลไม่ครบ", "กรุณากรอกข้อมูลใหม่ คะ");
+        } else {
+            confirmData();
+
         }
 
-    }//clicksave
+    }//clickSaveData
+//การตรวจสอบข้อมูลชื่อ-เบอร์โทร
+    private void confirmData() {
 
-    private boolean CheckSpace() {
-        return nameSting.equals("") ||
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.nobita48);
+        builder.setTitle("โปรดตรวจสอบข้อมูล");
+        builder.setMessage("Name = " + nameString + "\n" +
+                "MyPhone = " + MyPhoneString + "\n");
+        builder.setNegativeButton("CanCel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                SaveSQLite();
+                dialog.dismiss();
+
+            }
+        })
+    }
+
+    private void SaveSQLite() {
+
+    }
+
+    private boolean checkSpace() {
+        return nameString.equals("") ||
                 MyPhoneString.equals("");
     }
 
-} //Main Class
+}//Main Class

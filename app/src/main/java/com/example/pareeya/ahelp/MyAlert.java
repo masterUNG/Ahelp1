@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 /**
- * Created by pareeya on 9/3/2016.
+ * Created by Administrator on 3/9/2559.
  */
 public class MyAlert {
 
     public void myDialog( Context context,
-                         String strTitle,
-                         String strMessage) {
+                          String strTitle,
+                          String strMessage) {
         AlertDialog.Builder builder = new  AlertDialog.Builder(context);
         builder.setCancelable(false);
         builder.setIcon(R.drawable.nobita48);
@@ -24,8 +24,6 @@ public class MyAlert {
             }
         });
         builder.show();
+    }
 
-
-    } //การโวยวาย แจ้งเตือน
-
-}//Main class
+}//main class
