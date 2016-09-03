@@ -17,7 +17,7 @@ public class MyAlert {
         builder.setIcon(R.drawable.nobita48);
         builder.setTitle(strTitle);
         builder.setMessage(strMessage);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();

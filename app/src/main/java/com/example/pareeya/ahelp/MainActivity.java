@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         nameString = nameEditText.getText().toString().trim();
         MyPhoneString = MyPhoneEditText.getText().toString().trim();
 
-        //Check Space
+        //Check Space เช็คข้อมูล
 
         if (checkSpace()) {
             //Have Space ถ้ามีความว่างเปล่า
@@ -54,15 +54,15 @@ public class MainActivity extends AppCompatActivity {
         builder.setCancelable(false);
         builder.setIcon(R.drawable.nobita48);
         builder.setTitle("โปรดตรวจสอบข้อมูล");
-        builder.setMessage("Name = " + nameString + "\n" +
-                "MyPhone = " + MyPhoneString + "\n");
-        builder.setNegativeButton("CanCel", new DialogInterface.OnClickListener() {
+        builder.setMessage("ชื่อ-นามสกุล = " + nameString + "\n" +
+                "เบอร์โทรศัพท์ = " + MyPhoneString + "\n");
+        builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("ยืนยัน", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
 
             }
-        })
+        });
+        builder.show();
     }
 
     private void SaveSQLite() {

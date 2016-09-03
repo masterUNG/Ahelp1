@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Login"
         android:id="@+id/button"
-        android:onClick="ClickSaveData"
+        android:onClick="clickSaveData"
         android:padding="25dp"
         android:textSize="@dimen/h2"
         android:layout_alignParentBottom="true"

@@ -12,6 +12,8 @@ public class MyManage {
     private MyOpenHelper myOpenHelper;
     private SQLiteDatabase sqLiteDatabase;
 
+    public static final String table_name = "userTABLE";
+    public static  final String colum_id = "id";
     public MyManage(Context context) {
 
         myOpenHelper = new MyOpenHelper(context);
