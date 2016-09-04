@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
-        builder.setIcon(R.drawable.nobita48);
+        builder.setIcon(R.drawable.alert);
         builder.setTitle("โปรดตรวจสอบข้อมูล");
         builder.setMessage("ชื่อ-นามสกุล = " + nameString + "\n" +
                 "เบอร์โทรศัพท์ = " + MyPhoneString + "\n");
@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void SaveSQLite() {
+
+        myManage.addValueToSQLite(nameString, MyPhoneString);
+        startActivity(new Intent(MainActivity.this, ContentActivity.class));
 
     }
 

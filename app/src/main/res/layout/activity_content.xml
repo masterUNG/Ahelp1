@@ -26,7 +26,7 @@
         android:layout_alignParentEnd="true"
         android:onClick="clickContent"
         android:textSize="@dimen/h2"
-        android:background="@color/colorPrimaryDark"
+        android:background="#1c6ab3"
         android:textStyle="bold"
         android:textColor="#ffffff" />
 

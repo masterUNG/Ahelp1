@@ -38,14 +38,14 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="290dp"
+            android:layout_height="260dp"
             android:id="@+id/button16"
             android:background="@drawable/alarm" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="120dp"
             android:id="@+id/button17"
             android:background="@drawable/call1"
             android:layout_gravity="center_horizontal" />
@@ -69,8 +69,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@android:drawable/alert_light_frame"
+        android:background="@android:drawable/alert_dark_frame"
         android:layout_centerHorizontal="true"
-        android:onClick="clickHomeGoSetting" />
+        android:onClick="clickHomeGoSetting"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
 
 </RelativeLayout>
