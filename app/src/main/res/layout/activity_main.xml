@@ -63,7 +63,7 @@
                 android:paddingTop="20dp" />
 
             <EditText
-                android:layout_width="231dp"
+                android:layout_width="223dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText7"
                 android:textColor="@color/colorText"
@@ -90,7 +90,7 @@
                  />
 
             <EditText
-                android:layout_width="230dp"
+                android:layout_width="222dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText8"
                 android:textColor="@color/colorText"
@@ -117,12 +117,13 @@
                 />
 
             <EditText
-                android:layout_width="230dp"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText9"
                 android:textColor="@color/colorText"
                 android:inputType="text|number"
-                android:hint="1234" />
+                android:hint="1234"
+                android:layout_weight="0.16" />
         </LinearLayout>
 
 
