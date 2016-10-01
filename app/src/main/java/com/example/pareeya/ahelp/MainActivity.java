@@ -1,15 +1,24 @@
 package com.example.pareeya.ahelp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
+import android.speech.tts.Voice;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -117,13 +126,64 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                //UPload user to mySQL server
+                UploadToMySQL uploadToMySQL = new UploadToMySQL(MainActivity.this);
+                uploadToMySQL.execute();
+
+                //add user SQLITE
                 SaveSQLite();
                 dialog.dismiss();
 
             }
         });
         builder.show();
-    }
+    }//confirmData
+
+    private class UploadToMySQL extends AsyncTask<Void, Void, String> {
+
+        //Explicit
+        private Context context;
+        private static final String urlPHP = "http://swiftcodingthai.com/fai/add_user_fai.php";
+
+        public UploadToMySQL(Context context) {
+            this.context = context;
+        }//constructor เมธทอสหลัก
+
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            try {
+
+                OkHttpClient okHttpClient = new OkHttpClient();
+                RequestBody requestBody = new FormEncodingBuilder()
+                        .add("isAdd", "true")
+                        .add("Name", nameString)
+                        .add("Phone", MyPhoneString)
+                        .build();
+                Request.Builder builder = new Request.Builder();
+                Request request = builder.url(urlPHP).post(requestBody).build();
+                Response response = okHttpClient.newCall(request).execute();
+                return response.body().string();
+
+
+            } catch (Exception e) {
+                Log.d("1octV2", "e doInBack ==> " + e.toString());
+                return null;
+            }
+
+
+        }//doInBankทำงานอยู่เบื้องหลังในการต่อ server การเชื่อมต่อเน็ต
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Log.d("locV2", "Result ==>" + s);
+
+        }//onPost ทำงานหลังจาก
+
+    }//upload Class
 
     private void SaveSQLite() {
 
