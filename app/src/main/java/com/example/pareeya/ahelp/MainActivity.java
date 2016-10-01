@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Explicit การประกาศตัวแปร
     private MyManage myManage;
-    private EditText nameEditText, MyPhoneEditText;
-    private String nameString, MyPhoneString;
+    private EditText nameEditText, MyPhoneEditText,
+            PasswordEditText, rePasswordEdiText;
+    private String nameString, MyPhoneString,
+    passwordString, rePasswordString;
 
 
     @Override
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         //Bind Widget
         nameEditText = (EditText) findViewById(R.id.editText7);
         MyPhoneEditText = (EditText) findViewById(R.id.editText8);
+        PasswordEditText = (EditText) findViewById(R.id.editText9);
+        rePasswordEdiText = (EditText) findViewById(R.id.editText10);
 
 
 
@@ -65,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
 
         nameString = nameEditText.getText().toString().trim();
         MyPhoneString = MyPhoneEditText.getText().toString().trim();
+        passwordString = PasswordEditText.getText().toString().trim();
+        rePasswordString = rePasswordEdiText.getText().toString().trim();
+
+        Log.d("loctV1", "Pass ==>" + passwordString);
+        Log.d("loctV1", "RePass ==>" + rePasswordString);
+
 
         //Check Space เช็คข้อมูล
 
@@ -72,10 +82,19 @@ public class MainActivity extends AppCompatActivity {
             //Have Space ถ้ามีความว่างเปล่า
             MyAlert myAlert = new MyAlert();
             myAlert.myDialog(this, "กรอกข้อมูลไม่ครบ", "กรุณากรอกข้อมูลใหม่ คะ");
+        } else if (MyPhoneString.length() != 10) {
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this, "Phone False","กรุณากรอก หมายเลขโทรศัพท์ เพียงแค่ 10 หลัก");
+        } else if (passwordString.length() !=4) {
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this,"Password False","กรุณากรอก Password ให้มีแค่ 4 หลัก");
+        } else if (!passwordString.equals(rePasswordString)) {
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this, "Password False", "กรุณากรอก Password ให้เหมือนกัน");
         } else {
             confirmData();
-
         }
+
 
     }//clickSaveData
     //การตรวจสอบข้อมูลชื่อ-เบอร์โทร
@@ -86,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
         builder.setIcon(R.drawable.alert);
         builder.setTitle("โปรดตรวจสอบข้อมูล");
         builder.setMessage("ชื่อ-นามสกุล = " + nameString + "\n" +
-                "เบอร์โทรศัพท์ = " + MyPhoneString + "\n");
+                "เบอร์โทรศัพท์ = " + MyPhoneString + "\n" +
+                "Password = " +passwordString);
         builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -107,14 +127,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void SaveSQLite() {
 
-        myManage.addValueToSQLite(nameString, MyPhoneString,"test");
+        myManage.addValueToSQLite(nameString, MyPhoneString,passwordString);
         startActivity(new Intent(MainActivity.this, ContentActivity.class));
+        finish();
 
     }
 
     private boolean checkSpace() {
         return nameString.equals("") ||
-                MyPhoneString.equals("");
+                MyPhoneString.equals("")||
+                passwordString.equals("")||
+                rePasswordString.equals("");
 
 
     }

@@ -29,11 +29,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_above="@+id/button"
         android:background="#b6ebfdfd"
         android:weightSum="1"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="15dp">
+        android:paddingTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/button">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -65,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText7"
                 android:textColor="@color/colorText"
-                android:paddingTop="20dp" />
+                android:paddingTop="20dp"
+                android:inputType="text" />
 
         </LinearLayout>
 
@@ -91,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText8"
                 android:textColor="@color/colorText"
-                />
+                android:inputType="number"
+                android:hint="081xxxxxxx" />
         </LinearLayout>
 
 
@@ -117,7 +121,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editText9"
                 android:textColor="@color/colorText"
-                />
+                android:inputType="text|number"
+                android:hint="1234" />
         </LinearLayout>
 
 
@@ -144,7 +149,7 @@
                 android:layout_weight="2"
                 android:id="@+id/editText10"
                 android:textColor="@color/colorText"
-                />
+                android:inputType="text|number" />
         </LinearLayout>
 
     </LinearLayout>
