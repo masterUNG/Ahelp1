@@ -13,7 +13,7 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
     }//Main Method
     public void clickSetting (View view){
-        startActivity(new Intent(SettingActivity.this,HomeActivity.class));
+        //startActivity(new Intent(SettingActivity.this,HomeActivity.class));
 
-    }
+    }//clickSetting
 }//MAIN Class
