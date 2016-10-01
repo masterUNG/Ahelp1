@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Explicit
+    //Explicit การประกาศตัวแปร
     private MyManage myManage;
     private EditText nameEditText, MyPhoneEditText;
     private String nameString, MyPhoneString;
@@ -32,10 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
         myManage = new MyManage(this);
 
+        //Check SQLite ทำการเข้าหน้าล็อคอินแค่ครั้งเดียว
+
         Log.d("4SepV1", "Man==>");
 
         if (checkSQLite()) {
             startActivity(new Intent(MainActivity.this,HomeActivity.class));
+            finish();
         }
 
     }//Main Method
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }//clickSaveData
-//การตรวจสอบข้อมูลชื่อ-เบอร์โทร
+    //การตรวจสอบข้อมูลชื่อ-เบอร์โทร
     private void confirmData() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void SaveSQLite() {
 
-        myManage.addValueToSQLite(nameString, MyPhoneString);
+        myManage.addValueToSQLite(nameString, MyPhoneString,"test");
         startActivity(new Intent(MainActivity.this, ContentActivity.class));
 
     }

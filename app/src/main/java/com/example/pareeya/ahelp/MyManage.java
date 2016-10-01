@@ -17,6 +17,8 @@ public class MyManage {
     public static final String column_id = "id";
     public static final String column_Name = "Name";
     public static final String column_MyPhone = "MyPhone";
+    public static final String column_Password = "Password";
+
     public MyManage(Context context) {
 
         myOpenHelper = new MyOpenHelper(context);
@@ -25,14 +27,17 @@ public class MyManage {
     }   // Constructor
 
     //add value to SQLite
-    public long addValueToSQLite(String strName, String strMyPhone) {
+    public long addValueToSQLite(String strName,
+                                 String strMyPhone,
+                                 String strPassword) {
 
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(column_Name, strName);
         contentValues.put(column_MyPhone, strMyPhone);
+        contentValues.put(column_Password, strPassword);
 
-        return sqLiteDatabase.insert(table_name,null,contentValues);
+        return sqLiteDatabase.insert(table_name, null, contentValues);
     }
 
 }   // Main Class
