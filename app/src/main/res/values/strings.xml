@@ -8,7 +8,7 @@
     <string name="message">โปรดกรอกเบอร์โทรศัพท์ เพื่อส่งข้อความ และเลือกเบอร์โทรออกอัตโนมัติ</string>
 
     <string name="edit">แก้ไข</string>
-    <string name="callAuto">โทรออกอัตโนมัติ</string>
+    <string name="callAuto">โทรออก</string>
     <string name="ok_set">ยืนยัน</string>
 
     <string name="help">กดปุ่มเมื่อมีเหตุฉุกเฉิน</string>
