@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.AsyncTask;
 import android.speech.tts.Voice;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText nameEditText, MyPhoneEditText,
             PasswordEditText, rePasswordEdiText;
     private String nameString, MyPhoneString,
-    passwordString, rePasswordString;
+            passwordString, rePasswordString;
 
 
     @Override
@@ -35,13 +37,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Load the ImageView that will host the animation and
+        // set its background to our AnimationDrawable XML resource.
+        ImageView img = (ImageView) findViewById(R.id.imageView);
+        img.setBackgroundResource(R.drawable.anima);
+
+        // Get the background, which has been compiled to an AnimationDrawable object.
+        AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
+
+        // Start the animation (looped playback by default).
+        frameAnimation.start();
+
         //Bind Widget
         nameEditText = (EditText) findViewById(R.id.editText7);
         MyPhoneEditText = (EditText) findViewById(R.id.editText8);
         PasswordEditText = (EditText) findViewById(R.id.editText9);
         rePasswordEdiText = (EditText) findViewById(R.id.editText10);
-
-
 
         myManage = new MyManage(this);
 
@@ -50,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("4SepV1", "Man==>");
 
         if (checkSQLite()) {
-            startActivity(new Intent(MainActivity.this,HomeActivity.class));
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
             finish();
         }
 
@@ -65,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM userTABLE", null);
         cursor.moveToFirst();
 
-        if (cursor.getCount() !=0){
+        if (cursor.getCount() != 0) {
             result = true;
         }
         Log.d("4SepV1", "Result==>" + result);
@@ -93,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
             myAlert.myDialog(this, "กรอกข้อมูลไม่ครบ", "กรุณากรอกข้อมูลใหม่ คะ");
         } else if (MyPhoneString.length() != 10) {
             MyAlert myAlert = new MyAlert();
-            myAlert.myDialog(this, "Phone False","กรุณากรอก หมายเลขโทรศัพท์ เพียงแค่ 10 หลัก");
-        } else if (passwordString.length() !=4) {
+            myAlert.myDialog(this, "Phone False", "กรุณากรอก หมายเลขโทรศัพท์ เพียงแค่ 10 หลัก");
+        } else if (passwordString.length() != 4) {
             MyAlert myAlert = new MyAlert();
-            myAlert.myDialog(this,"Password False","กรุณากรอก Password ให้มีแค่ 4 หลัก");
+            myAlert.myDialog(this, "Password False", "กรุณากรอก Password ให้มีแค่ 4 หลัก");
         } else if (!passwordString.equals(rePasswordString)) {
             MyAlert myAlert = new MyAlert();
             myAlert.myDialog(this, "Password False", "กรุณากรอก Password ให้เหมือนกัน");
@@ -106,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }//clickSaveData
+
     //การตรวจสอบข้อมูลชื่อ-เบอร์โทร
     private void confirmData() {
 
@@ -115,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("โปรดตรวจสอบข้อมูล");
         builder.setMessage("ชื่อ-นามสกุล = " + nameString + "\n" +
                 "เบอร์โทรศัพท์ = " + MyPhoneString + "\n" +
-                "Password = " +passwordString);
+                "Password = " + passwordString);
         builder.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -187,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void SaveSQLite() {
 
-        myManage.addValueToSQLite(nameString, MyPhoneString,passwordString);
+        myManage.addValueToSQLite(nameString, MyPhoneString, passwordString);
         startActivity(new Intent(MainActivity.this, ContentActivity.class));
         finish();
 
@@ -195,8 +207,8 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkSpace() {
         return nameString.equals("") ||
-                MyPhoneString.equals("")||
-                passwordString.equals("")||
+                MyPhoneString.equals("") ||
+                passwordString.equals("") ||
                 rePasswordString.equals("");
 
 

@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/data"></LinearLayout>
+        android:background="@drawable/bgcontent"></LinearLayout>
 
     <Button
         android:layout_width="match_parent"

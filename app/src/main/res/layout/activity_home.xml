@@ -41,38 +41,43 @@
             android:layout_width="290dp"
             android:layout_height="260dp"
             android:id="@+id/button16"
-            android:background="@drawable/alarm" />
+            android:background="@drawable/butalarm1" />
 
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="120dp"
-            android:id="@+id/button17"
-            android:background="@drawable/call1"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/callhelp"
-            android:id="@+id/textView6"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold" />
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/button10"
+                android:background="@drawable/but1669"
+                android:layout_weight="1.32"
+                android:layout_width="120dp"
+                android:layout_height="110dp" />
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:id="@+id/button13"
+                android:layout_weight="1.32"
+                android:background="@drawable/butcall" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/setting"
         android:id="@+id/button15"
         android:layout_gravity="right"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@android:drawable/alert_dark_frame"
-        android:layout_centerHorizontal="true"
+        android:background="@drawable/butset"
         android:onClick="clickHomeGoSetting"
         android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_width="60dp" />
 
 </RelativeLayout>

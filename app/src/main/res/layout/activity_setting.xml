@@ -5,14 +5,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="com.example.pareeya.ahelp.SettingActivity"
-    android:background="@drawable/st">
+    android:background="@drawable/bgset">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/message"
         android:id="@+id/textView"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:background="#e0e0fffe"
         android:textColor="#535353"
         android:paddingLeft="10dp"
@@ -30,21 +30,21 @@
         android:id="@+id/button14"
         android:layout_gravity="bottom"
         android:layout_weight="1"
-        android:textSize="@dimen/h2"
+        android:textSize="18sp"
         android:textColor="#ffffff"
         android:background="#1c6ab3"
         android:textStyle="bold"
         android:onClick="clickSetting"
-        android:padding="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="42dp"
         android:background="#e0e0fffe"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -55,15 +55,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
+            <TextView
+                android:text="@string/callAuto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editText6"
-                tools:text="@string/callAuto"
-                android:gravity="right|center_vertical"
-                android:textSize="14sp" />
+                android:layout_height="36dp"
+                android:id="@+id/textView6"
+                android:paddingLeft="320dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -78,17 +76,18 @@
                 android:layout_width="180dp" />
 
             <Button
-                android:text="@string/edit"
-                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/button2"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/butdel"
+                android:layout_width="10dp" />
 
             <RadioButton
-                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton6"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:layout_width="0.5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,17 +102,18 @@
                 android:layout_width="180dp" />
 
             <Button
-                android:text="@string/edit"
-                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/butdel"
+                android:layout_width="10dp" />
 
             <RadioButton
-                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton7"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:layout_width="0.5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,17 +128,18 @@
                 android:layout_width="180dp" />
 
             <Button
-                android:text="@string/edit"
-                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/button4"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/butdel"
+                android:layout_width="10dp" />
 
             <RadioButton
-                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton8"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:layout_width="0.5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,17 +154,18 @@
                 android:layout_width="180dp" />
 
             <Button
-                android:text="@string/edit"
-                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/button5"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/butdel"
+                android:layout_width="10dp" />
 
             <RadioButton
-                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton9"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:layout_width="0.5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -178,17 +180,18 @@
                 android:layout_width="180dp" />
 
             <Button
-                android:text="@string/edit"
-                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/button6"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/butdel"
+                android:layout_width="10dp" />
 
             <RadioButton
-                android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton10"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:layout_width="0.5dp" />
         </LinearLayout>
 
 
