@@ -58,7 +58,7 @@
             <TextView
                 android:text="@string/callAuto"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/textView6"
                 android:paddingLeft="320dp" />
 
@@ -69,25 +69,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView9"
-                android:layout_weight="1"
-                android:layout_width="180dp" />
+                android:inputType="text|number"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:id="@+id/button2"
                 android:layout_weight="1"
                 android:background="@drawable/butdel"
-                android:layout_width="10dp" />
+                android:layout_width="8dp" />
 
             <RadioButton
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton6"
                 android:layout_weight="1"
                 android:paddingRight="10dp"
-                android:layout_width="0.5dp" />
+                android:layout_width="2dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -95,25 +97,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView10"
-                android:layout_weight="1"
-                android:layout_width="180dp" />
+                android:inputType="text|number"
+                android:ems="10"
+                android:id="@+id/editText11"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"
                 android:layout_weight="1"
                 android:background="@drawable/butdel"
-                android:layout_width="10dp" />
+                android:layout_width="8dp" />
 
             <RadioButton
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton7"
                 android:layout_weight="1"
                 android:paddingRight="10dp"
-                android:layout_width="0.5dp" />
+                android:layout_width="2dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -121,25 +125,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView11"
-                android:layout_weight="1"
-                android:layout_width="180dp" />
+                android:inputType="text|number"
+                android:ems="10"
+                android:id="@+id/editText12"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:id="@+id/button4"
                 android:layout_weight="1"
                 android:background="@drawable/butdel"
-                android:layout_width="10dp" />
+                android:layout_width="8dp" />
 
             <RadioButton
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton8"
                 android:layout_weight="1"
                 android:paddingRight="10dp"
-                android:layout_width="0.5dp" />
+                android:layout_width="2dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -147,25 +153,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView12"
-                android:layout_weight="1"
-                android:layout_width="180dp" />
+                android:inputType="text|number"
+                android:ems="10"
+                android:id="@+id/editText13"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:id="@+id/button5"
                 android:layout_weight="1"
                 android:background="@drawable/butdel"
-                android:layout_width="10dp" />
+                android:layout_width="8dp" />
 
             <RadioButton
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton9"
                 android:layout_weight="1"
                 android:paddingRight="10dp"
-                android:layout_width="0.5dp" />
+                android:layout_width="2dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -173,25 +181,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <EditText
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView13"
-                android:layout_weight="1"
-                android:layout_width="180dp" />
+                android:inputType="text|number"
+                android:ems="10"
+                android:id="@+id/editText14"
+                android:layout_weight="1" />
 
             <Button
                 android:layout_height="wrap_content"
                 android:id="@+id/button6"
                 android:layout_weight="1"
                 android:background="@drawable/butdel"
-                android:layout_width="10dp" />
+                android:layout_width="8dp" />
 
             <RadioButton
                 android:layout_height="wrap_content"
                 android:id="@+id/radioButton10"
                 android:layout_weight="1"
                 android:paddingRight="10dp"
-                android:layout_width="0.5dp" />
+                android:layout_width="2dp" />
         </LinearLayout>
 
 
