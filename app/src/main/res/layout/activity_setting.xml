@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/message"
         android:id="@+id/textView"
-        android:textSize="@dimen/h3"
+        android:textSize="18sp"
         android:background="#e0e0fffe"
         android:textColor="#535353"
         android:paddingLeft="10dp"
@@ -62,7 +62,8 @@
                 android:ems="10"
                 android:id="@+id/editText6"
                 tools:text="@string/callAuto"
-                android:gravity="right|center_vertical" />
+                android:gravity="right|center_vertical"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
