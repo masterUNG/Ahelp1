@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // image animation
         // Load the ImageView that will host the animation and
         // set its background to our AnimationDrawable XML resource.
         ImageView img = (ImageView) findViewById(R.id.imageView);
