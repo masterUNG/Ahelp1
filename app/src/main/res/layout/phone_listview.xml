@@ -9,11 +9,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView13"
         android:layout_weight="1"
-        android:textSize="@dimen/h2"
+        android:textSize="@dimen/h1"
         android:layout_margin="10dp"
         android:textStyle="normal|bold"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/colorText" />
+        android:textColor="@color/colorTextphone" />
 
     <TextView
         android:text="TextView"
@@ -21,8 +21,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView12"
         android:layout_weight="1"
-        android:textSize="@dimen/h2"
+        android:textSize="@dimen/h1"
         android:layout_margin="10dp"
         android:textStyle="normal|italic"
-        android:textColor="@color/colorText" />
+        android:textColor="@color/colorTextphone"
+        android:layout_marginLeft="10dp" />
 </LinearLayout>
