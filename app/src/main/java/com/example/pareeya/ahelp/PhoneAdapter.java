@@ -46,11 +46,11 @@ public class PhoneAdapter extends BaseAdapter{
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.phone_listview, parent, false);
 
-        TextView textView = (TextView) view.findViewById(R.id.textView12);
-        TextView textView1 = (TextView) view.findViewById(R.id.textView13);
+        TextView textView = (TextView) view.findViewById(R.id.textView13);
+        TextView textView1 = (TextView) view.findViewById(R.id.textView12);
 
         textView.setText(nameStrings[position]);
-        textView.setText(phoneString[position]);
+        textView1.setText(phoneString[position]);
 
 
 

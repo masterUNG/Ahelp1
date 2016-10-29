@@ -210,7 +210,8 @@
                 android:layout_height="300dp"
                 android:layout_weight="1"
                 android:id="@+id/livfriend"
-                android:layout_margin="20dp" />
+                android:layout_margin="20dp"
+                android:background="#82ffffff" />
         </LinearLayout>
     </ScrollView>
 
