@@ -1,10 +1,10 @@
 package com.example.pareeya.ahelp;
 
 import android.content.Context;
-import android.media.Image;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,6 +23,7 @@ import com.squareup.okhttp.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
@@ -30,6 +31,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             phone4TextView, phone5TextView;
     private ImageView addPhone1ImageView, addPhone2ImageView,
             addPhone3ImageView, addPhone4ImageView, addPhone5ImageView;
+    private ImageView deletePhone1ImageView, deletePhone2ImageView,
+            deletePhone3ImageView, deletePhone4ImageView, deletePhone5ImageView;
     private RadioGroup radioGroup;
     private RadioButton phone1RadioButton, phone2RadioButton,
             phone3RadioButton, phone4RadioButton, phone5RadioButton;
@@ -59,6 +62,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         addPhone4ImageView.setOnClickListener(SettingActivity.this);
         addPhone5ImageView.setOnClickListener(SettingActivity.this);
 
+        deletePhone1ImageView.setOnClickListener(SettingActivity.this);
+        deletePhone2ImageView.setOnClickListener(SettingActivity.this);
+        deletePhone3ImageView.setOnClickListener(SettingActivity.this);
+        deletePhone4ImageView.setOnClickListener(SettingActivity.this);
+        deletePhone5ImageView.setOnClickListener(SettingActivity.this);
+
+
 
     }//Main Method
 
@@ -86,6 +96,22 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.imageView10:
                 phone5TextView.setText(phoneChooseString);
+                break;
+
+            case R.id.imageView11:
+                phone1TextView.setText("");
+                break;
+            case R.id.imageView12:
+                phone2TextView.setText("");
+                break;
+            case R.id.imageView13:
+                phone3TextView.setText("");
+                break;
+            case R.id.imageView14:
+                phone4TextView.setText("");
+                break;
+            case R.id.imageView15:
+                phone5TextView.setText("");
                 break;
 
 
@@ -193,6 +219,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         addPhone5ImageView = (ImageView) findViewById(R.id.imageView10);
 
 
+        deletePhone1ImageView = (ImageView) findViewById(R.id.imageView11);
+        deletePhone2ImageView = (ImageView) findViewById(R.id.imageView12);
+        deletePhone3ImageView = (ImageView) findViewById(R.id.imageView13);
+        deletePhone4ImageView = (ImageView) findViewById(R.id.imageView14);
+        deletePhone5ImageView = (ImageView) findViewById(R.id.imageView15);
+
+
         phone1RadioButton = (RadioButton) findViewById(R.id.radioButton6);
         phone2RadioButton = (RadioButton) findViewById(R.id.radioButton7);
         phone3RadioButton = (RadioButton) findViewById(R.id.radioButton8);
@@ -204,9 +237,12 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-    }//bindWidget
 
-    public void clickSetting(View view) {
+
+
+    }//bindWidget
+    //ปุ่มยืนยัน
+    public void clickSetting (View view) {
         //startActivity(new Intent(SettingActivity.this,HomeActivity.class));
 
     }//clickSetting
