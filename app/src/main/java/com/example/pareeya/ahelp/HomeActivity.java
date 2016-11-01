@@ -29,9 +29,16 @@ public class HomeActivity extends AppCompatActivity {
         // Start the animation (looped playback by default).
         frameAnimation.start();
 
-    }
+
+        //ปุ่มโทร1669
+
+
+
+    }//Main Method
+
+    //ปุ่มตั้งค่า
     public void clickHomeGoSetting  (View view){
         startActivity(new Intent(HomeActivity.this,SettingActivity.class));
 
     }
-}
+}//Main Class
