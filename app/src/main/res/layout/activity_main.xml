@@ -19,7 +19,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="#1c6ab3"
-        android:onClick="clickSaveData (MainActivity)"
+        android:onClick="clickSaveData"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text="@string/Login"

@@ -1,7 +1,6 @@
 package com.example.pareeya.ahelp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +22,6 @@ import com.squareup.okhttp.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Explicit
@@ -38,7 +36,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             phone3RadioButton, phone4RadioButton, phone5RadioButton;
     private ListView listView;
     private Button button;
-    private String urlJSON = "http://swiftcodingthai.com/fai/get_User_kanyarat.php";
+    private String urlJSON = "http://swiftcodingthai.com/fai/get_user_master.php";
     private String[] nameStrings, phoneStrings;
     private String nameChooseString, phoneChooseString;
 
@@ -51,7 +49,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         //Bind Widget
         bindWidget();
 
-        //create ListView
+        //Create ListView
         SynUser synUser = new SynUser(SettingActivity.this);
         synUser.execute(urlJSON);
 
@@ -61,7 +59,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         addPhone3ImageView.setOnClickListener(SettingActivity.this);
         addPhone4ImageView.setOnClickListener(SettingActivity.this);
         addPhone5ImageView.setOnClickListener(SettingActivity.this);
-
         deletePhone1ImageView.setOnClickListener(SettingActivity.this);
         deletePhone2ImageView.setOnClickListener(SettingActivity.this);
         deletePhone3ImageView.setOnClickListener(SettingActivity.this);
@@ -69,35 +66,32 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         deletePhone5ImageView.setOnClickListener(SettingActivity.this);
 
 
-
     }//Main Method
 
+
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
+        Log.d("29octV2", "Click ImageAdd");
 
-        switch (v.getId()) {
+        switch (view.getId()) {
 
             case R.id.imageView6:
                 phone1TextView.setText(phoneChooseString);
+                Log.d("29octV2", "Click " + phoneChooseString);
                 break;
-
             case R.id.imageView7:
                 phone2TextView.setText(phoneChooseString);
                 break;
-
             case R.id.imageView8:
                 phone3TextView.setText(phoneChooseString);
                 break;
-
             case R.id.imageView9:
                 phone4TextView.setText(phoneChooseString);
                 break;
-
             case R.id.imageView10:
                 phone5TextView.setText(phoneChooseString);
                 break;
-
             case R.id.imageView11:
                 phone1TextView.setText("");
                 break;
@@ -114,52 +108,44 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 phone5TextView.setText("");
                 break;
 
+        }   // switch
 
-        }//Switch
 
-    }//onClick
+    }   // onClick
 
     private class SynUser extends AsyncTask<String, Void, String> {
 
-
-
         private Context context;
-
 
 
         public SynUser(Context context) {
             this.context = context;
         }
 
-
         @Override
-        protected String doInBackground(String... params) {
+        protected String doInBackground(String... strings) {
 
             try {
 
                 OkHttpClient okHttpClient = new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.url(params[0]).build();
+                Request request = builder.url(strings[0]).build();
                 Response response = okHttpClient.newCall(request).execute();
                 return response.body().string();
 
-
-
-
             } catch (Exception e) {
-                Log.d("29octV1", "e doInBack ==>" + e.toString());
+                Log.d("29octV1", "e doInBack ==> " + e.toString());
                 return null;
             }
 
 
         }
 
-
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
-            Log.d("29octV1", "JSON ==>" + s);
+            Log.d("29octV1", "JSON ==> " + s);
 
             try {
 
@@ -168,30 +154,32 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 nameStrings = new String[jsonArray.length()];
                 phoneStrings = new String[jsonArray.length()];
 
-                for (int i=0;i<jsonArray.length();i++) {
+                for (int i = 0; i < jsonArray.length(); i++) {
 
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     nameStrings[i] = jsonObject.getString("Name");
                     phoneStrings[i] = jsonObject.getString("Phone");
 
-                }//for
+                }   // for
 
-                PhoneAdapter phoneAdapter = new PhoneAdapter(context, nameStrings, phoneStrings);
-
+                PhoneAdapter phoneAdapter = new PhoneAdapter(context,
+                        nameStrings, phoneStrings);
                 listView.setAdapter(phoneAdapter);
 
-               listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                   @Override
-                   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                       Toast.makeText(context, "คุณเลือก" + nameStrings[position],
-                               Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "คุณเลือก " + nameStrings[i],
+                                Toast.LENGTH_SHORT).show();
 
-                       nameChooseString = nameStrings[position];
-                       phoneChooseString = phoneStrings[position];
-                   }//onIntemClick
-               });
+                        nameChooseString = nameStrings[i];
+                        phoneChooseString = phoneStrings[i];
+
+                    }   // onItmeClick
+                });
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -200,8 +188,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-    }//SynUser Class
-
+    }   // SynUser Class
 
 
     private void bindWidget() {
@@ -218,7 +205,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         addPhone4ImageView = (ImageView) findViewById(R.id.imageView9);
         addPhone5ImageView = (ImageView) findViewById(R.id.imageView10);
 
-
         deletePhone1ImageView = (ImageView) findViewById(R.id.imageView11);
         deletePhone2ImageView = (ImageView) findViewById(R.id.imageView12);
         deletePhone3ImageView = (ImageView) findViewById(R.id.imageView13);
@@ -232,17 +218,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         phone4RadioButton = (RadioButton) findViewById(R.id.radioButton9);
         phone5RadioButton = (RadioButton) findViewById(R.id.radioButton10);
 
-        listView = (ListView) findViewById(R.id.livfriend);
+        listView = (ListView) findViewById(R.id.livFriend);
         radioGroup = (RadioGroup) findViewById(R.id.ragPhone);
 
 
-
-
-
-
     }//bindWidget
-    //ปุ่มยืนยัน
-    public void clickSetting (View view) {
+
+    public void clickSetting(View view) {
         //startActivity(new Intent(SettingActivity.this,HomeActivity.class));
 
     }//clickSetting
