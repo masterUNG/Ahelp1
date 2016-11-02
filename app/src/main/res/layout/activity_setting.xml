@@ -48,9 +48,9 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="97dp"
                     app:srcCompat="@drawable/textset"
-                    android:id="@+id/imageView5" />
+                    android:id="@+id/imageView5"
+                    android:layout_height="97dp" />
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -61,9 +61,10 @@
                         app:srcCompat="@drawable/butcall"
                         android:id="@+id/imageView4"
                         android:layout_gravity="right"
-                        android:layout_width="51dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="4" />
+                        android:layout_height="40dp"
+                        android:layout_weight="0"
+                        android:layout_width="41dp"
+                        android:layout_marginRight="5dp" />
 
                 </LinearLayout>
 
@@ -74,9 +75,9 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="15dp"
-                android:background="#e0e0fffe">
+                android:padding="10dp"
+                android:background="#e0e0fffe"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -87,39 +88,39 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
                         android:id="@+id/textView5"
                         android:textSize="@dimen/h2"
-                        android:textColor="@android:color/background_light"/>
+                        android:textColor="@android:color/black"
+                        android:layout_height="30dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
                         android:id="@+id/textView6"
                         android:textSize="@dimen/h2"
-                        android:textColor="@android:color/background_light" />
+                        android:textColor="@android:color/black"
+                        android:layout_height="30dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
                         android:id="@+id/textView9"
                         android:textSize="@dimen/h2"
-                        android:textColor="@android:color/background_light" />
+                        android:textColor="@android:color/black"
+                        android:layout_height="30dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
                         android:id="@+id/textView10"
                         android:textSize="@dimen/h2"
-                        android:textColor="@android:color/background_light" />
+                        android:textColor="@android:color/black"
+                        android:layout_height="30dp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
                         android:id="@+id/textView11"
                         android:textSize="@dimen/h2"
-                        android:textColor="@android:color/background_light"
-                        android:layout_weight="1" />
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:layout_height="30dp" />
 
                 </LinearLayout>
 
@@ -253,10 +254,11 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="116dp"
                 android:id="@+id/livFriend"
                 android:layout_margin="20dp"
-                android:background="#e0e0fffe" />
+                android:background="#e0e0fffe"
+                android:layout_weight="10428.78"
+                android:layout_height="100dp" />
         </LinearLayout>
     </ScrollView>
 
