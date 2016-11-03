@@ -44,7 +44,7 @@ public class PhoneAdapter extends BaseAdapter{
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view1 = layoutInflater.inflate(R.layout.phon_listview, viewGroup, false);
+        View view1 = layoutInflater.inflate(R.layout.phone_listview, viewGroup, false);
 
         TextView textView = (TextView) view1.findViewById(R.id.textView12);
         TextView textView1 = (TextView) view1.findViewById(R.id.textView13);

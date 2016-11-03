@@ -60,7 +60,7 @@
             android:layout_gravity="center_horizontal">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/call"
                 android:background="@drawable/but1669"
                 android:layout_weight="1.32"
                 android:layout_width="120dp"
