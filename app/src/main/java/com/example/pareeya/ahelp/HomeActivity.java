@@ -61,10 +61,10 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-
     }
-    public void clickHomeGoSetting  (View view){
-        startActivity(new Intent(HomeActivity.this,SettingActivity.class));
+
+    public void clickHomeGoSetting(View view) {
+        startActivity(new Intent(HomeActivity.this, SettingActivity.class));
 
     }
 }
