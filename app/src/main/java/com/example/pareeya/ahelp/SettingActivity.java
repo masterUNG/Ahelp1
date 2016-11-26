@@ -1,6 +1,8 @@
 package com.example.pareeya.ahelp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -37,8 +40,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     private ListView listView;
     private Button button;
     private String urlJSON = "http://swiftcodingthai.com/fai/get_User_kanyarat.php";
-    private String[] nameStrings, phoneStrings;
-    private String nameChooseString, phoneChooseString;
+    private String[] nameStrings, phoneStrings, passwordStrings;
+    private String nameChooseString, phoneChooseString, passwordChooseString;
 
 
     @Override
@@ -77,20 +80,34 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
 
             case R.id.imageView6:
-                phone1TextView.setText(phoneChooseString);
-                Log.d("29octV2", "Click " + phoneChooseString);
+
+                confirmPassword(phone1TextView, nameChooseString,
+                        phoneChooseString, passwordChooseString);
+
                 break;
             case R.id.imageView7:
-                phone2TextView.setText(phoneChooseString);
+
+                confirmPassword(phone2TextView, nameChooseString,
+                        phoneChooseString, passwordChooseString);
+
                 break;
             case R.id.imageView8:
-                phone3TextView.setText(phoneChooseString);
+
+                confirmPassword(phone3TextView, nameChooseString,
+                        phoneChooseString, passwordChooseString);
+
                 break;
             case R.id.imageView9:
-                phone4TextView.setText(phoneChooseString);
+
+                confirmPassword(phone4TextView, nameChooseString,
+                        phoneChooseString, passwordChooseString);
+
                 break;
             case R.id.imageView10:
-                phone5TextView.setText(phoneChooseString);
+
+                confirmPassword(phone5TextView, nameChooseString,
+                        phoneChooseString, passwordChooseString);
+
                 break;
             case R.id.imageView11:
                 phone1TextView.setText("");
@@ -112,6 +129,53 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
     }   // onClick
+
+    private void confirmPassword(final TextView phoneTextView,
+                                 final String nameChooseString,
+                                 final String phoneChooseString,
+                                 final String passwordChooseString) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.alert);
+        builder.setTitle("Password " + nameChooseString);
+        builder.setMessage("โปรดกรอก Password ของ " + nameChooseString);
+
+        final EditText editText = new EditText(SettingActivity.this);
+        builder.setView(editText);
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                String strPassword = editText.getEditableText().toString().trim();
+
+                if (strPassword.equals(passwordChooseString)) {
+
+                    //Password True
+                    phoneTextView.setText(nameChooseString);
+                    dialogInterface.dismiss();
+
+                } else {
+                    //Password False
+                    Toast.makeText(SettingActivity.this,
+                            "Password ผิด กรอกใหม่",
+                            Toast.LENGTH_SHORT).show();
+                    dialogInterface.dismiss();
+                }   // if
+
+            }   // onClick
+        });
+        builder.show();
+
+
+    }   // confirm
 
     private class SynUser extends AsyncTask<String, Void, String> {
 
@@ -153,6 +217,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
                 nameStrings = new String[jsonArray.length()];
                 phoneStrings = new String[jsonArray.length()];
+                passwordStrings = new String[jsonArray.length()];
 
                 for (int i = 0; i < jsonArray.length(); i++) {
 
@@ -160,6 +225,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
                     nameStrings[i] = jsonObject.getString("Name");
                     phoneStrings[i] = jsonObject.getString("Phone");
+                    passwordStrings[i] = jsonObject.getString("Password");
 
                 }   // for
 
@@ -176,6 +242,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
                         nameChooseString = nameStrings[i];
                         phoneChooseString = phoneStrings[i];
+                        passwordChooseString = passwordStrings[i];
 
                     }   // onItmeClick
                 });
