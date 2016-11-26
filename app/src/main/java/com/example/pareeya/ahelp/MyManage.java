@@ -18,6 +18,7 @@ public class MyManage {
     public static final String column_Name = "Name";
     public static final String column_MyPhone = "MyPhone";
     public static final String column_Password = "Password";
+    public static final String column_idCall = "idCall";
 
     public MyManage(Context context) {
 

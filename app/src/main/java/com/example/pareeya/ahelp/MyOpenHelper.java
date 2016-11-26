@@ -21,9 +21,10 @@ public class MyOpenHelper extends SQLiteOpenHelper{
 
     private static final String create_phone_table = "create table phoneTABLE(" +
             "_id integer primary key," +
+            "idCall text, " +
             "MyPhone text);";
 
-    private String firstString = "insert into phoneTABLE VALUES(null, '');";
+    private String firstString = "insert into phoneTABLE VALUES(null, '', '');";
 
 
 
