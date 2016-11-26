@@ -11,10 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
-
-import static com.example.pareeya.ahelp.R.id.bottom;
-import static com.example.pareeya.ahelp.R.id.imageView3;
+import android.widget.Toast;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -64,7 +61,23 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickHomeGoSetting(View view) {
-        startActivity(new Intent(HomeActivity.this, SettingActivity.class));
 
-    }
-}
+        try {
+
+            CheckInternet checkInternet = new CheckInternet(HomeActivity.this);
+            checkInternet.execute();
+
+            if (Boolean.parseBoolean(checkInternet.get())) {
+                startActivity(new Intent(HomeActivity.this, SettingActivity.class));
+            } else {
+                Toast.makeText(HomeActivity.this, "Cannot Setting No Internet",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }   // clickHome
+
+}   // Main Class
