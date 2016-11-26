@@ -36,7 +36,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             phone3RadioButton, phone4RadioButton, phone5RadioButton;
     private ListView listView;
     private Button button;
-    private String urlJSON = "http://swiftcodingthai.com/fai/get_user_master.php";
+    private String urlJSON = "http://swiftcodingthai.com/fai/get_User_kanyarat.php";
     private String[] nameStrings, phoneStrings;
     private String nameChooseString, phoneChooseString;
 
