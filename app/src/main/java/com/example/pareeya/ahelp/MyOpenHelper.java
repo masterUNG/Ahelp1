@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by masterUNG on 9/3/2016 AD.
  */
-public class MyOpenHelper extends SQLiteOpenHelper{
+public class MyOpenHelper extends SQLiteOpenHelper {
 
     //Explicit
     public static final String database_name = "aHelp.db";
@@ -27,9 +27,6 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     private String firstString = "insert into phoneTABLE VALUES(null, '', '');";
 
 
-
-
-
     public MyOpenHelper(Context context) {
         super(context, database_name, null, database_version);
     }   // Constructor
@@ -39,7 +36,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(create_user_table);
         sqLiteDatabase.execSQL(create_phone_table);
 
-        for (int i=0; i<5; i+=1) {
+        for (int i = 0; i < 5; i += 1) {
             sqLiteDatabase.execSQL(firstString);
 
         }
