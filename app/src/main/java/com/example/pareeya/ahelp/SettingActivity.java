@@ -174,7 +174,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         });
         builder.show();
 
-
     }   // confirm
 
     private class SynUser extends AsyncTask<String, Void, String> {
