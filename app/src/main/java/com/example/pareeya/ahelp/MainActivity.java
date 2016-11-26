@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -54,7 +55,34 @@ public class MainActivity extends AppCompatActivity {
         PasswordEditText = (EditText) findViewById(R.id.editText9);
         rePasswordEdiText = (EditText) findViewById(R.id.editText10);
 
+        //Check Internet
+        try {
+
+            CheckInternet checkInternet = new CheckInternet(MainActivity.this);
+            checkInternet.execute();
+            if (Boolean.parseBoolean(checkInternet.get())) {
+                Toast.makeText(MainActivity.this, "Internet OK", Toast.LENGTH_SHORT).show();
+
+
+
+            } else {
+                Toast.makeText(MainActivity.this, "Cannot Connected Internet", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         myManage = new MyManage(this);
+
+        myCheck();
+
+
+
+    }//Main Method
+
+    private void myCheck() {
 
         //Check SQLite ทำการเข้าหน้าล็อคอินแค่ครั้งเดียว
 
@@ -65,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-    }//Main Method
+    }
 
     private boolean checkSQLite() {
 
@@ -77,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
 
         if (cursor.getCount() != 0) {
-            result = true;
+            result = true;  // Have Data
         }
         Log.d("4SepV1", "Result==>" + result);
         return result;
